@@ -1,0 +1,53 @@
+{%extends 'main/base.html'%} {%block content%}
+<div class="container">
+  <div class="row">
+    {% if images%}
+    <h2>Found{{images|length}} of searched term{{message}}</h2>
+    {%else%}
+    <h2>Found 0 images for the searched term{{message}}</h2>
+    {%endif%}
+  </div>
+
+  <div class="row">
+    {%if images%}
+    <div class="container" style="top: 180px; position: absolute">
+      <div class="row">
+        {%for images in images%}
+        <div class="col-12">
+          <div class="card" style="width: 35 rem; margin-bottom: 40px">
+            <p class="card-title" style="font-weight: bold">
+              {{image.name}}
+              <small style="font-style: italix">{{image.pub_date|date}}</small>
+            </p>
+            <img class="card-img-top img-responsive" src="{{image.image.url}}""
+            alt="Card image cap">
+
+            <div class="card-body">
+              <p class="card-text">{{image.caption}}</p>
+              <p classl="card-text">comments</p>
+              <p class="card-text">{{image.commentss}}</p>
+              <button style="margin-left: 180px">
+                <a href=""
+                  ><i class="fa fa-thumbs-up" aria-hidden="true"
+                    >Like {{image.likes}}</i
+                  ></a
+                >
+              </button>
+              <button style="margin-left: 160px">
+                <a href=""
+                  ><i class="fa fa-thumbs-down" aria-hidden="true"
+                    >Dislike {{image.likes}}</i
+                  ></a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+        <br />
+      </div>
+    </div>
+    {%endif%}
+  </div>
+</div>
+{%endblock%}
