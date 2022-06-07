@@ -1,5 +1,9 @@
 from django.shortcuts import render
+import datetime as dt
+from models import Profile,Image
 
 # Create your views here.
 def home(request):
-    return render(request,'main/home.html')
+    profile=Profile.objects.all()
+    Image= Image.filter_by_profile(profile)
+    return render(request,'main/home.html', {"images":images})

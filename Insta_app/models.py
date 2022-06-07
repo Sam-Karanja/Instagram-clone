@@ -9,10 +9,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length= 200)
 
     def __str__(self):
-        return self.profile
-
-    class Meta:
-        ordering = ['profile']
+        return self.bio
 
     def save_profile(self):
         self.save()
@@ -48,7 +45,7 @@ class Image(models.Model):
     class Meta:
         ordering=['name']
 
-    def save_images(self):
+    def save_profile(self):
         self.save()
 
     @classmethod
@@ -57,8 +54,8 @@ class Image(models.Model):
         return image
 
     @classmethod
-    def filter_by_name(cls, name):
-        images=cls.objects.filter(name__name=name)
+    def filter_by_profile(cls, profile):
+        images=cls.objects.filter(profile__in=profile)
         return images
 
     @classmethod
