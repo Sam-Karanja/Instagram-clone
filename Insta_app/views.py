@@ -6,4 +6,5 @@ from models import Profile,Image
 def home(request):
     profile=Profile.objects.all()
     Image= Image.filter_by_profile(profile)
-    return render(request,'main/home.html', {"images":images})
+    profiles= Profile.filter_profile_by_id(profile)
+    return render(request,'main/home.html',{"profiles": profiles})

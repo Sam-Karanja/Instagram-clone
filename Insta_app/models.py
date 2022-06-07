@@ -25,6 +25,11 @@ class Profile(models.Model):
         profile=cls.objects.fileter(id=profile_id).update(profile=profile)
         return profile
 
+    @classmethod
+    def filter_profile_by_id(cls,profile):
+        profile =cls.objects.filter(id_in=profile)
+        return profile
+
 
 
 
