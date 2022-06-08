@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import datetime as dt
 from models import Profile,Image
+from django.http import HttpResponse,Http404, HttpResponseRedirect
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def home(request):
@@ -19,3 +21,11 @@ def search_results(request):
     else:
         message="You have not searched for an image."
         return render(request, 'main/search.html', {"message": message})
+
+
+def image(request,image_id):
+    try:
+        image=Image.objects.get(id=image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"main/image/image.html",{"image":image})

@@ -47,6 +47,8 @@
                 <p class="card-text" style="font-style:italic;">{{image.comments}}</p>
                 <button style="margin-left: 180px;"><a href=""><i class="fa fa-thumbs-up" aria-hidden="true">like{{image.likes}}</i></a></button>
                 <button style="margin-left: 160px;"><a href=""><i class="fa fa-thumbs-down" aria-hidden="true">dislike{{image.dislikes}}</i>></i></a></button>></button>
+
+                <button><a href="{%url 'image' image.id'%}">View Image</a></button>
             </div>
 
         </div>
