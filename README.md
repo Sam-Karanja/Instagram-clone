@@ -7,20 +7,13 @@
 -  Go to  Github  using the Link provided.
 -  Copy repository link in the Code section
 - open your terminal 
-- cd to your project folder
-- if you don't have a folder cd Documents and mkdir myProject
-- cd myProject and write the command below to clone repository
-- git clone https://github.com/Sam-Karanja/Instagram-clone.git 
-- Bingo! You have My Gallery application in your machine
-
-## Requirements
-
+- run command  git clone https://github.com/Sam-Karanja/Instagram-clone.git 
 
 
 ## Installation Requirements
 Click on this link to view the website in github https://github.com/Sam-Karanja/Instagram-clone.git 
 
--clonet the repository
+-clone the repository
 -have a python virtual enviroment
 -install git
 -install Django
