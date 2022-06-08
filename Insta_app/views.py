@@ -158,7 +158,7 @@ def user_profile(request, username):
             if_follow = False
 
     print(followers)
-    return render(request, 'main/poster.html', {'user_poster': user_poster,'followers': followers, 'if_follow': if_follow,'user_posts':user_posts})
+    return render(request, 'all-instagram/poster.html', {'user_poster': user_poster,'followers': followers, 'if_follow': if_follow,'user_posts':user_posts})
 
 
 
