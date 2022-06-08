@@ -7,6 +7,8 @@ import datetime as dt
 class Profile(models.Model):
     profile =models.ImageField(upload_to ='photos/',blank = True)
     bio = models.CharField(max_length= 200)
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    name = models.CharField(blank=True, max_length=120)
 
     def __str__(self):
         return self.bio
@@ -87,6 +89,21 @@ class Preference(models.Model):
 
     def save_preference(self):
         self.save()
+
+
+class Comments(models.Model):
+    comment = models.TextField(max_length = 300)
+    image = models.ForeignKey(Image,null=True, on_delete=models.CASCADE,related_name='comments')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='comments')
+    comment_date = models.DateTimeField(auto_now_add=True) 
+
+
+    class Meta:
+        ordering = ["-comment_date"]
+
+
+    def __str__(self):
+        return f'{self.user.name} Image'
 
 
         
